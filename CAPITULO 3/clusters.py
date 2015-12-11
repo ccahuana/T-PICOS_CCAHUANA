@@ -47,12 +47,6 @@ def pearson(v1,v2):
   if den==0: return 0
 
   return 1.0-num/den
-#==========creando la funcion manhattan
-def manhattan(v1, v2):
-   suma=0
-   for i in range(len(v1)):
-       suma+=pow(pow(v1[i]-v2[i], 2), 0.5)  
-   return suma
 
 class bicluster:
   def __init__(self,vec,left=None,right=None,distance=0.0,id=None):
@@ -61,8 +55,8 @@ class bicluster:
     self.vec=vec
     self.id=id
     self.distance=distance
-#==========manhattan======================
-def hcluster(rows,distance=manhattan):
+
+def hcluster(rows,distance=pearson):
   distances={}
   currentclustid=-1
 
@@ -186,7 +180,7 @@ def rotatematrix(data):
 
 import random
 
-def kcluster(rows,distance=manhattan,k=4):
+def kcluster(rows,distance=pearson,k=4):
   # Determinando el minimo y maximo valor para cada punto
   ranges=[(min([row[i] for row in rows]),max([row[i] for row in rows])) 
   for i in range(len(rows[0]))]
@@ -236,7 +230,7 @@ def tanamoto(v1,v2):
   
   return 1.0-(float(shr)/(c1+c2-shr))
 
-def scaledown(data,distance=manhattan,rate=0.01):
+def scaledown(data,distance=pearson,rate=0.01):
   n=len(data)
 
   # La distancia real entre cada par de items
