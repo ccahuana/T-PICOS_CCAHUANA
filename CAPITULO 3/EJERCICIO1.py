@@ -21,11 +21,21 @@ def readfile(filename):
     data.append([float(x) for x in p[1:]])
   return rownames,colnames,data
 
-#==========================================================================
-from math import sqrt
 
+from math import sqrt
+#####=====================PREGUNTA 2 LA DISTANCIA EUCLIDIANA===============
+#==========================================================================
 def euclidean(v1,v2):
   return sqrt(sum([(v1[i]-v2[i])**2 for i in range(len(v1))]))
+#==========================================================================
+#####=====================PREGUNTA 3 LA DISTANCIA MANHATTAN================
+#####======================================================================
+#####======================================================================
+def manjathan(v1,v2):
+  return abs(sum([(v1[i]-v2[i]) for i in range(len(v1))]))
+
+#####=====================PREGUNTA 1 LA DISTANCIA EUCLIDIANA===============
+###========================================================================
 def pearson(v1,v2):
   # Sumas simples
   sum1=sum(v1)
@@ -46,7 +56,7 @@ def pearson(v1,v2):
   if den==0: return 0
 
   return 1.0-num/den
-
+###=========================================================================
 class bicluster:
   def __init__(self,vec,left=None,right=None,distance=0.0,id=None):
     self.left=left
@@ -180,6 +190,8 @@ def rotatematrix(data):
   return newdata
 
 import random
+#####=============================PREGUNTA 4=================================
+#####========================================================================
 
 def kcluster(rows,distance=pearson,k=4):
   # Determinar el valor mínimo y máximo para cada punto
@@ -220,6 +232,8 @@ def kcluster(rows,distance=pearson,k=4):
         clusters[i]=avgs
       
   return bestmatches
+#####======================================================================
+#####======================================================================
 
 def tanamoto(v1,v2):
   c1,c2,shr=0,0,0
