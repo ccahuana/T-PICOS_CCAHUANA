@@ -34,7 +34,23 @@ def euclidean(v1,v2):
 def manjathan(v1,v2):
   return abs(sum([(v1[i]-v2[i]) for i in range(len(v1))]))
 
-#####=====================PREGUNTA 1 LA DISTANCIA EUCLIDIANA===============
+#####=====================PREGUNTA 1=======================================
+###========================================================================
+#itera sobre todas las entradas
+for e in d.entries:
+  if 'summary' in e: summary=e.summary
+  else:summary=e.description
+  #extrae una list palabras
+  words=getwords(e.title+''+summary)
+  wc={}
+  for word in words:
+    wc.setdefault(word,0)
+    wc[word]+=1
+    wc1[e.title]=wc
+    titu[a]=e.title
+    a=a+1
+    return d.feed.title,wc,titu,wc1
+
 ###========================================================================
 def pearson(v1,v2):
   # Sumas simples
